@@ -1,3 +1,26 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.bgblur{
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body {
+  background-color: #101010;
+}
+
 html,
 body {
   padding: 0;
