@@ -1,0 +1,11 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"@clients/*": ["_clients/*"],
+			"@components/*": ["_components/*"],
+			"@layouts/*": ["_layouts/*"],
+			"@app/*": ["pages/_app.js"],
+		}
+	}
+}
