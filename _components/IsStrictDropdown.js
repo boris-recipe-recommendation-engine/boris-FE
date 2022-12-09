@@ -1,15 +1,15 @@
 import { Menu } from '@headlessui/react'
 import { useState } from 'react'
 
-export default function MethodDropdown(props){
+export default function IsStrictDropdown(props){
     
-    const [displayValue, setDisplayValue] = useState("Boil");
+    const [displayValue, setDisplayValue] = useState("Using");
 
     return (
-        <div className='absolute bg-[#d4c59d80] w-full rounded-md border'>
+        <div className='absolute bg-[#6b75c780] w-full rounded-md border py-1'>
             <Menu>
-                <Menu.Button className="py-1">
-                    <div className=''>
+                <Menu.Button className="">
+                    <div className='text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-[#5081c7] to-[#483f8c] py-1'>
                         {displayValue}
                     </div>
                 </Menu.Button>
@@ -18,13 +18,13 @@ export default function MethodDropdown(props){
                     {({ active }) => (
                         <div
                             onClick={()=>{
-                                props.setMethod("bake");
-                                setDisplayValue("Bake");
+                                props.setStrict(false);
+                                setDisplayValue("Using");
                             }}
 
                             className="pb-2 rounded-md hover:text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-[#9960bd] to-[#bf456c]"
                         >
-                            Bake
+                            Using
                         </div>
                     )}
                     </Menu.Item>
@@ -32,27 +32,13 @@ export default function MethodDropdown(props){
                     {({ active }) => (
                         <div
                             onClick={()=>{
-                                props.setMethod("boil");
-                                setDisplayValue("Boil");
+                                props.setStrict(true);
+                                setDisplayValue("Only Using");
                             }}
 
                             className="pb-2 rounded-md hover:text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-[#9960bd] to-[#bf456c]"
                         >
-                            Boil
-                        </div>
-                    )}
-                    </Menu.Item>
-                    <Menu.Item>
-                    {({ active }) => (
-                        <div
-                            onClick={()=>{
-                                props.setMethod("fried");
-                                setDisplayValue("Fry");
-                            }}
-
-                            className="pb-2 rounded-md hover:text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-[#9960bd] to-[#bf456c]"
-                        >
-                            Fry
+                            Only Using
                         </div>
                     )}
                     </Menu.Item>
