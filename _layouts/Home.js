@@ -12,7 +12,7 @@ import { BorisBackendClient } from "@clients/boris-backend-fetcher";
 export default function HomeLayout(){
     const {GetRecipeByMethod} = BorisBackendClient();
 
-    const [method, setMethod] = useState("boil");
+    const [method, setMethod] = useState("bake");
     const [ingredients, setIngredients] = useState([]);
     const [strict, setStrict] = useState(false);
     const [openPos, setOpenPos] = useState(false);
@@ -34,7 +34,7 @@ export default function HomeLayout(){
               <div className="w-full flex flex-col place-items-center justify-center">
                 <div className="w-full flex flex-row gap-x-2 text-center place-items-center justify-center h-16">
                   <span className="">I'm in the mood to</span>
-                    <div className="relative w-20 h-full flex flex-col pt-3">
+                    <div className="relative w-24 h-full flex flex-col pt-3">
                     <MethodDropdown setMethod={setMethod}/>
                     </div>
                     <span className="">
@@ -49,8 +49,8 @@ export default function HomeLayout(){
                     <div className="relative group  my-1 mx-1 px-1 py-1"
                         onClick={async ()=>{
                           if(ingredients.length == 0) return;
+                            setRecipes(await GetRecipeByMethod(method, ingredients, strict));
                             setOpenPos(true)
-                            setRecipes(await GetRecipeByMethod(method, ingredients, strict))
                         }}>
                       <div className="absolute bg-[#8abd7e] w-full h-full px-4 py-4 bg-opacity-0 group-hover:blur  group-hover:bg-opacity-60 z-0" />
                       <button

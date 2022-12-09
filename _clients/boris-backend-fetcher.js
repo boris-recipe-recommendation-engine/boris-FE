@@ -10,16 +10,16 @@ export function BorisBackendClient(){
                     Params: {}
                 };
                 for (let ingr of ingredient_list){
-                    body_dump.Params[ingr] = true;
+                    strict_body.Params[ingr] = true;
                 };
         
-                res = await fetch('http://localhost:4000/strictrecipe', {
+                res = await fetch('http://127.0.0.1:4000/strictrecipe', {
                     method: 'POST',
                     headers: {
-                        'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(strict_body)
+                    body: JSON.stringify(strict_body),
+                    
                 });
                 break;
                 
@@ -28,26 +28,23 @@ export function BorisBackendClient(){
                     CookingMethod: method,
                     Params: ingredient_list
                 };
-                for (let ingr of ingredient_list){
-                    body_dump.Params[ingr] = true;
-                };
         
-                res = await fetch('http://localhost:4000/laxrecipe', {
+                res = await fetch('http://127.0.0.1:4000/laxrecipe', {
                     method: 'POST',
                     headers: {
-                        'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(lax_body)
+                    body: JSON.stringify(lax_body),
+                    
                 });
                 break;
         }
 
         /// preprocessing here
-        return (await res.text()).split("~~");
+        return (await res.text()).split("~~").map((bodytext)=>(JSON.parse(bodytext)));
     }
 
-    return (
+    return {
         GetRecipeByMethod
-    )
+    }
 }

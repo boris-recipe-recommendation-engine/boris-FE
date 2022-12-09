@@ -3,7 +3,8 @@ import { Combobox } from "@headlessui/react"
 
 export default function IngredientsList(props){
     const ingredients = [
-        "beef", "black_pepper", "butter", "chicken", "eggs", "flour", "milk", "oil", "paprika", "parsley", "pork", "rice", "salt", "star_anise", "sugar", "tofu", "vanilla", "water"
+        "beef", "black_pepper", "butter", "chicken", "eggs", "flour", "milk", "oil", "paprika", "parsley", "pork", "rice", "salt", "star_anise", "sugar", "tofu", "vanilla", "water",
+        "corn_starch", "soy_sauce", "cooking_wine", "ginger", "scallion", "vinegar", "cabbage", "mushroom", "chicken_powder", "yeast", "tomato_sauce", "tomato_paste", "tomato", "basil", "oregano", "garlic", "onion_powder", "pepperoni", "cheese", "pepper_powder"
     ];
 
     const [selectedIngredients, setSelectedIngredients] = useState([]);

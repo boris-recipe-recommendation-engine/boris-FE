@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 export default function MethodDropdown(props){
     
-    const [displayValue, setDisplayValue] = useState("Boil");
+    const [displayValue, setDisplayValue] = useState("Bake");
 
     return (
         <div className='absolute bg-[#d4c59d80] w-full rounded-md border'>
@@ -56,6 +56,49 @@ export default function MethodDropdown(props){
                         </div>
                     )}
                     </Menu.Item>
+                    <Menu.Item>
+                    {({ active }) => (
+                        <div
+                            onClick={()=>{
+                                props.setMethod("roast");
+                                setDisplayValue("Roast");
+                            }}
+
+                            className="pb-2 rounded-md hover:text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-[#9960bd] to-[#bf456c]"
+                        >
+                            Roast
+                        </div>
+                    )}
+                    </Menu.Item>
+                    <Menu.Item>
+                    {({ active }) => (
+                        <div
+                            onClick={()=>{
+                                props.setMethod("smoke");
+                                setDisplayValue("Smoke");
+                            }}
+
+                            className="pb-2 rounded-md hover:text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-[#9960bd] to-[#bf456c]"
+                        >
+                            Smoke
+                        </div>
+                    )}
+                    </Menu.Item>
+                    <Menu.Item>
+                    {({ active }) => (
+                        <div
+                            onClick={()=>{
+                                props.setMethod("steam");
+                                setDisplayValue("Steam");
+                            }}
+
+                            className="pb-2 rounded-md hover:text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-[#9960bd] to-[#bf456c]"
+                        >
+                            Steam
+                        </div>
+                    )}
+                    </Menu.Item>
+                    
                 </Menu.Items>
                 </Menu>
         </div>
