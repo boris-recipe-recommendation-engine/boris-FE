@@ -6,10 +6,10 @@ export default function IsStrictDropdown(props){
     const [displayValue, setDisplayValue] = useState("Using");
 
     return (
-        <div className='absolute bg-[#6b75c780] w-full rounded-md border py-1'>
+        <div className='absolute bg-[#6b75c7] bg-opacity-40 w-full rounded-md border py-1'>
             <Menu>
                 <Menu.Button className="">
-                    <div className='text-transparent bg-clip-text bg-gradient bg-gradient-to-r from-[#5081c7] to-[#483f8c] py-1'>
+                    <div className='py-1'>
                         {displayValue}
                     </div>
                 </Menu.Button>
